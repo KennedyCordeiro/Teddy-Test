@@ -1,5 +1,5 @@
-import api from "./api";
-import type { User } from "../interfaces/user";
+import api from "../../services/api";
+import type { User, ApiResponse } from "../interfaces/user";
 
 export const UserService = {
   async create(user: Omit<User, "id">): Promise<User> {
@@ -7,7 +7,7 @@ export const UserService = {
     return response.data;
   },
 
-  async getAll(): Promise<User[]> {
+  async getAll(): Promise<ApiResponse> {
     const response = await api.get("/users");
     return response.data;
   },
