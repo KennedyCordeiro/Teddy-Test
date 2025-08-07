@@ -1,15 +1,41 @@
-# Sistema de Gerenciamento de Clientes
+# Sistema de Gerenciamento de Clientes - Micro-Frontends
 
-Sistema completo de gerenciamento de clientes desenvolvido com React + TypeScript + Vite, com arquitetura de micro-frontends e containerização Docker.
+Sistema completo de gerenciamento de clientes desenvolvido com React + TypeScript + Vite, utilizando arquitetura de micro-frontends com containerização Docker.
+
+## 🏗️ Arquitetura
+
+### Estrutura de Micro-Frontends
+
+```
+src/
+├── shell/                    # Container/Shell principal
+│   ├── App.tsx              # Aplicação principal
+│   └── App.styled.tsx       # Estilos do shell
+├── micro-frontends/          # Micro-frontends
+│   ├── auth/                # MFE de autenticação
+│   │   ├── components/      # Componentes do auth
+│   │   └── index.ts         # Exportações
+│   ├── clients/             # MFE de gerenciamento de clientes
+│   │   ├── components/      # Componentes de clientes
+│   │   ├── interfaces/      # Tipos específicos
+│   │   ├── services/        # Serviços de API
+│   │   └── index.ts         # Exportações
+│   └── shared/              # Biblioteca compartilhada
+│       ├── components/      # Design System
+│       ├── utils/           # Utilitários compartilhados
+│       └── index.ts         # Exportações
+└── App.tsx                  # Entry point
+```
 
 ## 🚀 Funcionalidades
 
-- ✅ **Tela de Login**: Interface simples para inserção do nome do usuário
-- ✅ **Gerenciamento de Clientes**: CRUD completo (Criar, Ler, Atualizar, Deletar)
-- ✅ **Seleção de Clientes**: Sistema de seleção múltipla de clientes
-- ✅ **Interface Responsiva**: Design adaptável para desktop e mobile
-- ✅ **TypeScript**: Tipagem forte para maior segurança
-- ✅ **Arquitetura Limpa**: Componentização e estrutura organizada
+- ✅ **Micro-Frontends**: Arquitetura modular e escalável
+- ✅ **Autenticação**: Sistema de login com eventBus
+- ✅ **Gerenciamento de Clientes**: CRUD completo
+- ✅ **Design System**: Componentes reutilizáveis
+- ✅ **Event Bus**: Comunicação entre MFEs
+- ✅ **TypeScript**: Tipagem forte
+- ✅ **Responsividade**: Design adaptável
 
 ## 🛠️ Tecnologias Utilizadas
 
@@ -17,9 +43,9 @@ Sistema completo de gerenciamento de clientes desenvolvido com React + TypeScrip
 - **TypeScript** - Tipagem estática
 - **Vite** - Build tool moderna
 - **React Router DOM** - Roteamento
-- **Axios** - Cliente HTTP
+- **Styled Components** - Estilização
+- **Event Bus** - Comunicação entre MFEs
 - **Docker** - Containerização
-- **Nginx** - Servidor web
 
 ## 📋 Pré-requisitos
 
@@ -29,7 +55,7 @@ Sistema completo de gerenciamento de clientes desenvolvido com React + TypeScrip
 
 ## 🚀 Como Executar
 
-### Opção 1: Desenvolvimento Local
+### Desenvolvimento Local
 
 ```bash
 # Clone o repositório
@@ -45,7 +71,7 @@ npm run dev
 
 A aplicação estará disponível em `http://localhost:5173`
 
-### Opção 2: Docker
+### Docker
 
 ```bash
 # Build e execução com Docker Compose
@@ -56,48 +82,30 @@ docker build -t teddy-test .
 docker run -p 3000:80 teddy-test
 ```
 
-A aplicação estará disponível em `http://localhost:3000`
+## 🏗️ Estrutura dos Micro-Frontends
 
-### Opção 3: Desenvolvimento com Docker
+### Shell (Container)
 
-```bash
-# Executar em modo desenvolvimento
-docker-compose --profile dev up --build
-```
+- **Responsabilidades**: Roteamento, layout global, comunicação entre MFEs
+- **Componentes**: Header global, navegação, container principal
 
-## 📁 Estrutura do Projeto
+### Auth MFE
 
-```
-src/
-├── components/          # Componentes React
-│   ├── Home.tsx        # Tela de login
-│   └── ClientsManagement.tsx  # Gerenciamento de clientes
-├── interfaces/          # Tipos TypeScript
-│   └── user.ts         # Interface User
-├── services/           # Serviços de API
-│   ├── api.ts          # Configuração do Axios
-│   └── userService.ts  # Serviços de usuário
-├── App.tsx             # Componente principal
-└── main.tsx           # Ponto de entrada
-```
+- **Responsabilidades**: Autenticação, login, logout
+- **Componentes**: Login, formulários de autenticação
+- **Comunicação**: EventBus para notificar login/logout
 
-## 🎯 Funcionalidades Detalhadas
+### Clients MFE
 
-### Tela de Login (`/`)
+- **Responsabilidades**: Gerenciamento completo de clientes
+- **Componentes**: Lista, formulários, ações CRUD
+- **Serviços**: API calls, gerenciamento de estado local
 
-- Interface limpa e moderna
-- Validação de entrada
-- Armazenamento do nome do usuário
-- Redirecionamento automático
+### Shared
 
-### Gerenciamento de Clientes (`/clients`)
-
-- **Adicionar Clientes**: Formulário com validação
-- **Listar Clientes**: Exibição com contador
-- **Selecionar Clientes**: Sistema de seleção múltipla
-- **Deletar Clientes**: Remoção com confirmação
-- **Visualizar Selecionados**: Lista dos clientes selecionados
-- **Logout**: Botão para sair do sistema
+- **Responsabilidades**: Design System, utilitários compartilhados
+- **Componentes**: Button, Input, etc.
+- **Utils**: EventBus, globalStore, etc.
 
 ## 🔧 Scripts Disponíveis
 
@@ -182,7 +190,7 @@ A aplicação é totalmente responsiva e funciona em:
 
 - **Cores**: Gradiente roxo/azul (#667eea → #764ba2)
 - **Tipografia**: Sistema de fontes do sistema
-- **Componentes**: Estilização inline para performance
+- **Componentes**: Button, Input, etc.
 - **Animações**: Transições suaves e hover effects
 
 ## 🔒 Segurança
@@ -217,4 +225,4 @@ Desenvolvido para teste de vaga de desenvolvedor React.
 
 ---
 
-**Nota**: Este projeto foi desenvolvido como teste técnico e demonstra conhecimento em React, TypeScript, Docker e boas práticas de desenvolvimento.
+**Nota**: Este projeto foi desenvolvido como teste técnico e demonstra conhecimento em React, TypeScript, Micro-Frontends, Docker e boas práticas de desenvolvimento.
