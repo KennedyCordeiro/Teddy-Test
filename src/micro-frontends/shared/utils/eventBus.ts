@@ -1,28 +1,40 @@
-class EventBus {
-  private listeners: Record<string, Function[]> = {};
+/* eslint-disable @typescript-eslint/no-explicit-any */
+type EventMap = {
+  "clients-selected": { selectedClients: string[] };
+  "client-deleted": { id: string };
+  "client-created": { id: string };
+  [key: string]: any;
+};
 
-  on(event: string, callback: Function) {
+class EventBus<T extends Record<string, any>> {
+  private listeners: { [K in keyof T]?: Array<(data: T[K]) => void> } = {};
+
+  on<K extends keyof T>(event: K, callback: (data: T[K]) => void) {
     if (!this.listeners[event]) {
       this.listeners[event] = [];
     }
-    this.listeners[event].push(callback);
+    this.listeners[event]!.push(callback);
   }
 
-  off(event: string, callback: Function) {
+  off<K extends keyof T>(event: K, callback: (data: T[K]) => void) {
     if (this.listeners[event]) {
-      this.listeners[event] = this.listeners[event].filter(cb => cb !== callback);
+      this.listeners[event] = this.listeners[event]!.filter(
+        (cb) => cb !== callback
+      );
     }
   }
 
-  emit(event: string, data: any) {
+  emit<K extends keyof T>(event: K, data: T[K]) {
     if (this.listeners[event]) {
-      this.listeners[event].forEach(callback => callback(data));
+      this.listeners[event]!.forEach((callback) => callback(data));
     }
   }
 
   clear() {
-    this.listeners = {};
+    Object.keys(this.listeners).forEach((event) => {
+      this.listeners[event as keyof T] = [];
+    });
   }
 }
 
-export const eventBus = new EventBus(); 
+export const eventBus = new EventBus<EventMap>();

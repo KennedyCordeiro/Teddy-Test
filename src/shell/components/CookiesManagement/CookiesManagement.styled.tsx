@@ -17,7 +17,6 @@ export const Banner = styled.div`
   background: #fafafa;
   gap: 0.6em;
   display: flex;
-  font-family: Poppins;
   flex-direction: row;
   font-weight: 400;
   font-size: clamp(0.7rem, 0.3571rem + 0.5357vw, 1rem);

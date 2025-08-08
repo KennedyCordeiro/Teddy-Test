@@ -1,11 +1,8 @@
-// Design System Components
-export { Button } from './components/Button/Button';
-export { Input } from './components/Input/Input';
+export { Button } from "./components/Button";
+export { Input } from "./components/Input";
 
-// Types
-export type { ButtonProps } from './components/Button/Button';
-export type { InputProps } from './components/Input/Input';
+export type { ButtonProps } from "./components/Button";
+export type { InputProps } from "./components/Input";
 
-// Utils
-export { eventBus } from './utils/eventBus';
-export { globalStore } from './utils/globalStore'; 
+export { eventBus } from "./utils/eventBus";
+export { globalStore } from "./utils/globalStore";

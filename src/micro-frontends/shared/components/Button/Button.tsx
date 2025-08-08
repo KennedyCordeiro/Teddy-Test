@@ -7,6 +7,7 @@ export interface ButtonProps {
   onClick?: () => void;
   type?: "button" | "submit" | "reset";
   disabled?: boolean;
+  style?: React.CSSProperties;
 }
 
 const StyledButton = styled.button<ButtonProps>`
@@ -52,7 +53,7 @@ const StyledButton = styled.button<ButtonProps>`
   color: white;
 
   &:hover {
-    transform: translateY(-5px);
+    transform: translateY(-3px);
   }
 
   &:disabled {
@@ -69,6 +70,7 @@ export function Button({
   onClick,
   type = "button",
   disabled = false,
+  style,
 }: ButtonProps) {
   return (
     <StyledButton
@@ -76,7 +78,8 @@ export function Button({
       size={size}
       onClick={onClick}
       type={type}
-      disabled={disabled}>
+      disabled={disabled}
+      style={style}>
       {children}
     </StyledButton>
   );

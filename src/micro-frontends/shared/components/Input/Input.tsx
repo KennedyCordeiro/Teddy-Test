@@ -38,11 +38,12 @@ const StyledInput = styled.input<InputProps>`
   border-radius: 6px;
   transition: border-color 0.3s ease;
   width: 100%;
+  background-color: var(--primary-color);
   box-sizing: border-box;
-
+  color: var(--secondary-color);
   &:focus {
     outline: none;
-    border-color: #667eea;
+    border-color: var(--details-color);
   }
 
   &:disabled {
