@@ -24,6 +24,10 @@ src/
 │       ├── components/      # Design System
 │       ├── utils/           # Utilitários compartilhados
 │       └── index.ts         # Exportações
+├── test/                    # Testes
+│   ├── setup.ts            # Configuração dos testes
+│   ├── components/         # Testes unitários
+│   └── e2e/               # Testes end-to-end
 └── App.tsx                  # Entry point
 ```
 
@@ -36,6 +40,8 @@ src/
 - ✅ **Event Bus**: Comunicação entre MFEs
 - ✅ **TypeScript**: Tipagem forte
 - ✅ **Responsividade**: Design adaptável
+- ✅ **Testes Unitários**: Cobertura de componentes
+- ✅ **Testes E2E**: Fluxos completos testados
 
 ## 🛠️ Tecnologias Utilizadas
 
@@ -46,6 +52,8 @@ src/
 - **Styled Components** - Estilização
 - **Event Bus** - Comunicação entre MFEs
 - **Docker** - Containerização
+- **Vitest** - Testes unitários
+- **Playwright** - Testes E2E
 
 ## 📋 Pré-requisitos
 
@@ -69,7 +77,7 @@ npm install
 npm run dev
 ```
 
-A aplicação estará disponível em `http://localhost:5173`
+A aplicação estará disponível em `http://localhost:5001`
 
 ### Docker
 
@@ -114,6 +122,11 @@ npm run dev          # Executa em modo desenvolvimento
 npm run build        # Gera build de produção
 npm run preview      # Preview do build
 npm run lint         # Executa ESLint
+npm test             # Executa testes unitários
+npm run test:ui      # Interface visual dos testes
+npm run test:coverage # Cobertura de testes
+npm run test:e2e     # Executa testes E2E
+npm run test:e2e:ui  # Interface visual dos testes E2E
 ```
 
 ## 🐳 Docker
@@ -158,25 +171,61 @@ vercel
 
 ## 🧪 Testes
 
-### Testes Unitários (Diferencial)
+### Testes Unitários ✅
+
+Cobertura de testes para componentes principais:
 
 ```bash
-# Instalar dependências de teste
-npm install --save-dev @testing-library/react @testing-library/jest-dom vitest
-
-# Executar testes
+# Executar todos os testes unitários
 npm test
+
+# Interface visual dos testes
+npm run test:ui
+
+# Cobertura de código
+npm run test:coverage
 ```
 
-### Testes E2E (Diferencial)
+**Componentes Testados:**
+
+- ✅ Login Component
+- ✅ Button Component
+- ✅ EventBus Utility
+- ✅ UserService (mocks)
+
+**Cobertura de Testes:**
+
+- Renderização de componentes
+- Interações do usuário
+- Validações de formulário
+- Comunicação entre componentes
+- Utilitários e helpers
+
+### Testes E2E ✅
+
+Testes de fluxos completos da aplicação:
 
 ```bash
-# Instalar Playwright
-npm install --save-dev @playwright/test
-
 # Executar testes E2E
-npx playwright test
+npm run test:e2E
+
+# Interface visual dos testes E2E
+npm run test:e2e:ui
 ```
+
+**Fluxos Testados:**
+
+- ✅ Login e autenticação
+- ✅ Navegação entre páginas
+- ✅ Gerenciamento de clientes
+- ✅ Responsividade em diferentes dispositivos
+- ✅ Interações com modais
+- ✅ Logout e redirecionamento
+
+**Navegadores Testados:**
+
+- Chrome, Firefox, Safari
+- Mobile Chrome, Mobile Safari
 
 ## 📱 Responsividade
 
@@ -225,4 +274,4 @@ Desenvolvido para teste de vaga de desenvolvedor React.
 
 ---
 
-**Nota**: Este projeto foi desenvolvido como teste técnico e demonstra conhecimento em React, TypeScript, Micro-Frontends, Docker e boas práticas de desenvolvimento.
+**Nota**: Este projeto foi desenvolvido como teste técnico e demonstra conhecimento em React, TypeScript, Micro-Frontends, Docker, testes unitários e E2E, e boas práticas de desenvolvimento.
