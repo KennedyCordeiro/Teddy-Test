@@ -11,7 +11,6 @@ export function Login() {
     if (name.trim()) {
       eventBus.emit("user-login", { name: name.trim() });
 
-      // Armazenar no localStorage
       localStorage.setItem("userName", name.trim());
     }
   };
@@ -19,7 +18,7 @@ export function Login() {
   return (
     <S.LoginContainer>
       <S.LoginCard>
-        <S.LoginTitle>Bem-vindo ao Sistema de Clientes</S.LoginTitle>
+        <S.LoginTitle>Olá, seja bem-vindo!</S.LoginTitle>
         <S.LoginForm onSubmit={handleSubmit}>
           <S.LoginInput
             type="text"
