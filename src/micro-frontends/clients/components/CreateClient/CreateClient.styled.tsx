@@ -87,17 +87,3 @@ export const ErrorMessage = styled.div`
   padding: 12px;
   font-size: 0.9rem;
 `;
-
-// Responsividade
-export const ResponsiveModal = styled.div`
-  @media (max-width: 768px) {
-    ${Modal} {
-      width: 95%;
-      padding: 20px;
-    }
-
-    ${ButtonGroup} {
-      flex-direction: column;
-    }
-  }
-`;

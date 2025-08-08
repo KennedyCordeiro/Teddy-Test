@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  max-width: 1300px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: min(1rem, 10%);
   min-height: 100dvh;
@@ -54,7 +54,7 @@ export const FilterSelect = styled.select`
 
 export const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 20px;
   margin-bottom: 30px;
 `;

@@ -33,12 +33,10 @@ export function SelectedClients() {
         console.log("Cliente deletado");
       }
     }
-    console.log("Clientes carregados:", clients);
     setSelectedClients(clients);
   };
 
   useEffect(() => {
-    console.log("SelectedClients montado");
     fetchSelectedClients();
     const update = () => {
       fetchSelectedClients();
@@ -59,7 +57,6 @@ export function SelectedClients() {
     localStorage.setItem("selectedClients", JSON.stringify(updatedIds));
     setSelectedClients((prev) => {
       const filtered = prev.filter((client) => client.id !== clientId);
-      console.log("Clientes após filtro:", filtered);
       return filtered;
     });
     eventBus.emit("clients-selected", { selectedClients: updatedIds });
@@ -130,7 +127,6 @@ export function SelectedClients() {
                   title="Remover da lista de selecionados"
                   onClick={() => {
                     if (client.id) {
-                      console.log("Clicou em remover cliente:", client.id);
                       removeFromSelection(client.id);
                     }
                   }}>

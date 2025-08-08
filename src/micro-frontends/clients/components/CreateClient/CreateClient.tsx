@@ -36,10 +36,9 @@ export function CreateClient({
         companyValuation: parseFloat(formData.companyValuation) || 0,
       };
 
-      await UserService.create(newClient);
+      const clientCreated = await UserService.create(newClient);
 
-      // Emite evento para atualizar a lista
-      eventBus.emit("client-created", {});
+      eventBus.emit("client-created", { id: clientCreated.id! });
 
       setFormData({
         name: "",
