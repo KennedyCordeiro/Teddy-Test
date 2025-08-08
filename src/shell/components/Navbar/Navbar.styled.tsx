@@ -4,7 +4,7 @@ export const NavbarContainer = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 24px;
+  padding: 0 3dvw;
   height: 64px;
   background: white;
   border-bottom: 1px solid #e0e0e0;
@@ -14,7 +14,7 @@ export const NavbarContainer = styled.nav`
 export const LeftSection = styled.div`
   display: flex;
   align-items: center;
-  gap: 16px;
+  /* gap: 16px; */
 `;
 
 export const HamburgerMenu = styled.div`
@@ -78,6 +78,10 @@ export const CenterSection = styled.div`
   display: flex;
   align-items: center;
   gap: 32px;
+
+  @media (width <= 768px) {
+    display: none;
+  }
 `;
 
 export const NavLink = styled.button<{ $isActive: boolean }>`

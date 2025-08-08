@@ -12,6 +12,7 @@ export function Navbar({ userName }: NavbarProps) {
 
   const handleLogout = () => {
     localStorage.removeItem("userName");
+    localStorage.removeItem("selectedClients");
     eventBus.emit("user-logout", {});
     navigate("/");
   };
