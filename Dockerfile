@@ -6,8 +6,8 @@ WORKDIR /app
 # Copiar arquivos de dependências
 COPY package*.json ./
 
-# Instalar dependências
-RUN npm ci --only=production
+# Instalar TODAS as dependências
+RUN npm ci --legacy-peer-deps
 
 # Copiar código fonte
 COPY . .
@@ -24,8 +24,6 @@ COPY --from=builder /app/dist /usr/share/nginx/html
 # Copiar configuração do nginx
 COPY nginx.conf /etc/nginx/nginx.conf
 
-# Expor porta 80
 EXPOSE 80
 
-# Comando para iniciar nginx
-CMD ["nginx", "-g", "daemon off;"] 
+CMD ["nginx", "-g", "daemon off;"]
