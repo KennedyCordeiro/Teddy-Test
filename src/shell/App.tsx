@@ -1,9 +1,10 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { eventBus } from "../micro-frontends/shared/utils/eventBus";
-import { Login } from "../micro-frontends/auth";
+import { Login } from "../micro-frontends/auth/components/Login";
 import { ClientList, SelectedClients } from "../micro-frontends/clients";
 import { Navbar } from "./components/Navbar";
+import { CookiesManagement } from "./components/CookiesManagement";
 import * as S from "./App.styled";
 
 export function App() {
@@ -33,7 +34,6 @@ export function App() {
   return (
     <BrowserRouter>
       <S.AppContainer>
-        {/* Navbar aparece apenas quando o usuário está logado */}
         {userName && <Navbar userName={userName} />}
 
         <S.Content>
@@ -56,6 +56,8 @@ export function App() {
             />
           </Routes>
         </S.Content>
+
+        <CookiesManagement />
       </S.AppContainer>
     </BrowserRouter>
   );
