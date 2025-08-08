@@ -6,14 +6,14 @@ import * as S from "./ClientList.styled";
 import { UserService } from "../../services/userService";
 import { FiPlus, FiEdit, FiTrash2 } from "react-icons/fi";
 import { CreateClient } from "../CreateClient";
-import { ConfirmDeleteModal } from "./ConfirmDeleteModal";
+import { ConfirmDeleteModal } from "../ConfirmDeleteModal";
 import { EditClient } from "../EditClient";
 
 const PAGE_SIZE_OPTIONS = [4, 8, 16, 32, 64];
 
 export function ClientList() {
   const [clients, setClients] = useState<User[]>([]);
-  const [selectedClients, setSelectedClients] = useState<string[]>([]); // agora só ids
+  const [selectedClients, setSelectedClients] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
@@ -147,7 +147,7 @@ export function ClientList() {
   return (
     <S.Container>
       <S.Header>
-        <S.Title>{clients.length} clientes encontrados:</S.Title>
+        <S.Title>{clients.length} Clientes encontrados</S.Title>
         <S.FilterContainer>
           <S.FilterLabel>Clientes por página:</S.FilterLabel>
           <S.FilterSelect
