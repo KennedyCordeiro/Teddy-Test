@@ -264,11 +264,15 @@ A aplicação é totalmente responsiva e funciona em:
 4. Push para a branch (`git push origin feature/AmazingFeature`)
 5. Abra um Pull Request
 
-## 📝 Licença
+## 📝 LINK DISPONÍVEL
+
+https://teddy-test-seven.vercel.app/
 
 Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
 
 ## 👨‍💻 Autor
+
+Kennedy Cordeiro 
 
 Desenvolvido para teste de vaga de desenvolvedor React.
 
