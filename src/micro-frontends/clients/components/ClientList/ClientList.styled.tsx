@@ -17,9 +17,8 @@ export const Header = styled.div`
 
 export const Title = styled.h2`
   color: #495057;
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 0.8333rem + 0.3472vw, 1.25rem);
   margin: 0;
-  font-size: 1.25rem;
   font-weight: 400;
   span {
     font-weight: 600;
